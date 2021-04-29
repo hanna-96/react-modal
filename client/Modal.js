@@ -1,6 +1,7 @@
 import React from "react";
 import ReactModal from "react-modal";
 
+
 class Modal extends React.Component {
   constructor() {
     super();
@@ -13,6 +14,7 @@ class Modal extends React.Component {
     this.closeModal = this.closeModal.bind(this);
     this.clicked = this.clicked.bind(this);
   }
+  
   async componentDidMount() {
     await setTimeout(() => {
       this.openModal();
@@ -23,7 +25,6 @@ class Modal extends React.Component {
   }
   closeModal() {
     this.setState({ showModal: false });
-    console.log("clicked!!!");
     this.clicked();
   }
   clicked() {
@@ -33,18 +34,17 @@ class Modal extends React.Component {
   }
 
   render() {
-    console.log("Hey,weirdo???");
     return (
       <div className="has-text-centered">
         <br />
         <h1 className="title is-3">Introducing:</h1>
         <div>
-          <img id="homeImg" src="PARTYBOX.png" />
           <div>
-            {/* <button onClick={this.openModal}>Show Modal</button> */}
             <ReactModal
               isOpen={this.state.showModal}
+              style = {customStyles}
               contentLabel="MinimalModal Example"
+             
             >
               <button onClick={this.closeModal}>Close Modal</button>
               <h1>My FIRST MODAL</h1>
